@@ -1,5 +1,6 @@
 import React from 'react';
 import pf from 'petfinder-client';
+import Carousel from './Carousel';
 
 const petfinder = pf();
 
@@ -35,9 +36,10 @@ class Details extends React.Component {
     if (this.state.loading) {
       return <h1>loading....</h1>;
     }
-    const { name, animal, location, description, breed } = this.state;
+    const { name, animal, location, description, media, breed } = this.state;
     return (
       <div className="details">
+        <Carousel media={media} />
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} - ${breed} - ${location}`}</h2>
